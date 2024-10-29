@@ -33,7 +33,7 @@ public class Application {
     @GetMapping("/posts")
     public ResponseEntity<List<Post>> getAll() {
         return ResponseEntity.status(HttpStatus.OK)
-                .header("X-Total-Count", String.valueOf(posts.size() + 1))
+                .header("X-Total-Count", String.valueOf(posts.size()))
                 .body(posts);
     }
 
