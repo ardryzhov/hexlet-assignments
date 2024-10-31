@@ -15,8 +15,4 @@ import java.util.List;
 @Setter
 public class UserProperties {
     private List<String> admins;
-
-    public List<String> getAdmins() {
-        return admins != null ? admins : Collections.emptyList();
-    }
 }

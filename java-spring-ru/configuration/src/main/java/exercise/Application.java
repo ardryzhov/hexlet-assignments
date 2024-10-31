@@ -23,10 +23,14 @@ public class Application {
     private List<User> users = Data.getUsers();
 
     // BEGIN
+    @Autowired
+    private UserProperties admins;
+
     @GetMapping("/admins")
     public List<String> getAdmins() {
-        var admins = new UserProperties().getAdmins().stream().toList();
-        return users.stream().map(User::getName).filter(admins::contains).toList();
+        var emails = admins.getAdmins().stream().toList();
+
+        return users.stream().filter(u -> admins.getAdmins().contains(u.getEmail())).map(User::getName).toList();
     }
     // END
 
